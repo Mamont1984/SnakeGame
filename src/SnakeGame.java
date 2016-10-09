@@ -6,9 +6,11 @@ import java.awt.*;
  */
 public class SnakeGame extends JFrame {
 
-    final static int FIELD_WIDTH = 10;
-    final static int FIELD_HEIGHT = 10;
-    final static int CELL_SIZE = 25;
+    final static int FIELD_WIDTH = 20;
+    final static int FIELD_HEIGHT = 20;
+    final static int FIELD_WIDTH_DX = 6;
+    final static int FIELD_HEIGHT_DX = 28;
+    final static int CELL_SIZE = 10;
     final static int SNAKE_LENGTH = 1;
     final static int GAME_SPEED_MILS = 500;
     JFrame frame = new JFrame("Snake Game");
@@ -25,7 +27,7 @@ public class SnakeGame extends JFrame {
         field.setRandom(new Food());
         field.setRandom(new Poison());
 
-        frame.setSize(FIELD_WIDTH * CELL_SIZE, FIELD_HEIGHT * CELL_SIZE);
+        frame.setSize(FIELD_WIDTH * CELL_SIZE + FIELD_WIDTH_DX, FIELD_HEIGHT * CELL_SIZE + FIELD_HEIGHT_DX);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
         canvas.setBackground(Color.white);
@@ -33,20 +35,18 @@ public class SnakeGame extends JFrame {
 
         frame.setVisible(true);
         try {
-            Thread.sleep(100);
+            Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        g = canvas.getGraphics();
-        g.setColor(Color.red);
-        g.fillRect(0, 0, 20, 20);
-        g.dispose();
-        canvas.paint(g);
-
-//      field.show();
-    }
-
-    public void paint(Graphics g){
-
+        for (int i = 0; i < SnakeGame.FIELD_WIDTH; i++) {
+            for (int j = 0; j < SnakeGame.FIELD_HEIGHT; j++) {
+                g = canvas.getGraphics();
+                g.setColor(field.getCell(i,j).c);
+                g.fillRect(i * CELL_SIZE, j * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+                g.dispose();
+                canvas.paint(g);
+            }
+        }
     }
 }
