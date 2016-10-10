@@ -46,7 +46,8 @@ public class SnakeGame extends JFrame {
 //      field.show();
     }
 
-    public void paint(Graphics g){
+    public void paint(Graphics g, Canvas canvas){
+
 
     }
 }
