@@ -1,10 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 /**
  * Created by evgeny on 09.10.2016.
  */
-public class SnakeGame extends JFrame {
+public class SnakeGame extends JFrame implements KeyListener {
 
     final static int FIELD_WIDTH = 20;
     final static int FIELD_HEIGHT = 20;
@@ -48,5 +50,20 @@ public class SnakeGame extends JFrame {
                 canvas.paint(g);
             }
         }
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
     }
 }
