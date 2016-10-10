@@ -11,6 +11,6 @@ public class Food extends Cell {
     }
 
     Food(int x, int y) {
-        super(x, y, false);
+        super(x, y, false, Color.red);
     }
 }

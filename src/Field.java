@@ -15,7 +15,7 @@ public class Field {
                 if ((i == 0) || (j == 0) || (i == SnakeGame.FIELD_WIDTH - 1) || (j == SnakeGame.FIELD_HEIGHT - 1)) {
                     field[i][j] = new Wall(i, j);
                 } else {
-                    field[i][j] = new Cell(i, j, true);
+                    field[i][j] = new Cell();
                 }
             }
         }

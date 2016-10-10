@@ -8,16 +8,17 @@ public class Cell {
     private boolean isEmpty = true;
     private int x;
     private int y;
-    Color c = Color.white;
+    private Color color = Color.white;
 
     Cell() {
         isEmpty = false;
     }
 
-    Cell(int x, int y, boolean isEmpty) {
+    Cell(int x, int y, boolean isEmpty, Color color) {
         this.x = x;
         this.y = y;
         this.isEmpty = isEmpty;
+        this.color = color;
     }
 
     boolean isEmpty() {
