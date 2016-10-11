@@ -6,8 +6,7 @@ import java.awt.*;
 public class Food extends Cell {
 
     Food() {
-        super();
-        c = Color.red;
+        super(false, Color.red);
     }
 
     Food(int x, int y) {

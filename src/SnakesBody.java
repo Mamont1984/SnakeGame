@@ -6,7 +6,6 @@ import java.awt.*;
 public class SnakesBody extends Cell {
 
     SnakesBody(int x, int y) {
-        super(x, y, false);
-        c = Color.black;
+        super(x, y, false, Color.black);
     }
 }

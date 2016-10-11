@@ -10,8 +10,9 @@ public class Cell {
     private int y;
     private Color color = Color.white;
 
-    Cell() {
-        isEmpty = false;
+    Cell(boolean isEmpty, Color color) {
+        this.isEmpty = isEmpty;
+        this.color =color;
     }
 
     Cell(int x, int y, boolean isEmpty, Color color) {
@@ -23,5 +24,9 @@ public class Cell {
 
     boolean isEmpty() {
         return isEmpty;
+    }
+
+    public Color getColor() {
+        return color;
     }
 }

@@ -6,7 +6,7 @@ import java.awt.event.KeyListener;
 /**
  * Created by evgeny on 09.10.2016.
  */
-public class SnakeGame extends JFrame implements KeyListener {
+public class SnakeGame extends JFrame {
 
     final static int FIELD_WIDTH = 20;
     final static int FIELD_HEIGHT = 20;
@@ -44,26 +44,26 @@ public class SnakeGame extends JFrame implements KeyListener {
         for (int i = 0; i < SnakeGame.FIELD_WIDTH; i++) {
             for (int j = 0; j < SnakeGame.FIELD_HEIGHT; j++) {
                 g = canvas.getGraphics();
-                g.setColor(field.getCell(i,j).c);
+                g.setColor(field.getCell(i,j).getColor());
                 g.fillRect(i * CELL_SIZE, j * CELL_SIZE, CELL_SIZE, CELL_SIZE);
                 g.dispose();
                 canvas.paint(g);
             }
         }
     }
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-
-    }
+//
+//    @Override
+//    public void keyTyped(KeyEvent e) {
+//
+//    }
+//
+//    @Override
+//    public void keyPressed(KeyEvent e) {
+//
+//    }
+//
+//    @Override
+//    public void keyReleased(KeyEvent e) {
+//
+//    }
 }

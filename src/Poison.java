@@ -6,8 +6,7 @@ import java.awt.*;
 public class Poison extends Cell {
 
     Poison() {
-        super();
-        c = Color.GREEN;
+        super(false, Color.green);
     }
 
     Poison(int x, int y) {
