@@ -19,7 +19,8 @@ public class SnakeGame extends JFrame {
     final static int DOWN = 40;
     final static int LEFT = 37;
     final static int RIGTH = 39;
-    int currentSnakeDirection = UP;
+    final static String TITLE = "Snake Game v1.0";
+    int currentSnakeDirection = RIGTH;
     static boolean GameOver = false;
     KeyListener k = new KeyListener() {
         @Override
@@ -53,7 +54,7 @@ public class SnakeGame extends JFrame {
 
         }
     };
-    JFrame frame = new JFrame("Snake Game");
+    JFrame frame = new JFrame(TITLE);
     Canvas canvas = new Canvas();
     Graphics g;
 
@@ -70,11 +71,9 @@ public class SnakeGame extends JFrame {
         frame.setSize(FIELD_WIDTH * CELL_SIZE + FIELD_WIDTH_DX, FIELD_HEIGHT * CELL_SIZE + FIELD_HEIGHT_DX);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
-        canvas.setBackground(Color.white);
         frame.add(canvas);
-        canvas.addKeyListener(k);
-
-
+        canvas.setBackground(Color.white);
+        frame.addKeyListener(k);
         frame.setVisible(true);
 
         while (!GameOver) {
@@ -89,11 +88,11 @@ public class SnakeGame extends JFrame {
                         g = canvas.getGraphics();
                         g.setColor(field.getCell(i, j).getColor());
                         g.fillRect(i * CELL_SIZE, j * CELL_SIZE, CELL_SIZE, CELL_SIZE);
-
                     }
                 }
             }
             snake.snakeMove(currentSnakeDirection, field, g);
+            frame.setTitle(TITLE + " SCORE: " + snake.body.size());
         }
     }
 

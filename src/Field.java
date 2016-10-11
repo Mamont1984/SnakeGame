@@ -5,7 +5,7 @@ import java.util.Random;
  */
 public class Field {
 
-    Random rnd = new Random();
+    Random random = new Random();
     Cell[][] field = new Cell[SnakeGame.FIELD_WIDTH][SnakeGame.FIELD_HEIGHT];
 
     Field() {
@@ -31,8 +31,8 @@ public class Field {
         int x;
         int y;
             do {
-                x = rnd.nextInt(SnakeGame.FIELD_WIDTH - 1);
-                y = rnd.nextInt(SnakeGame.FIELD_HEIGHT - 1);
+                x = random.nextInt(SnakeGame.FIELD_WIDTH - 1);
+                y = random.nextInt(SnakeGame.FIELD_HEIGHT - 1);
             } while (field[x][y] != null);
         field[x][y] = element;
     }
