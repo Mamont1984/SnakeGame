@@ -7,13 +7,13 @@ abstract public class Cell {
 
     private int x;
     private int y;
-    private Color color = Color.white;
+    private Color color;
 
-    Cell(boolean isEmpty, Color color) {
+    Cell(Color color) {
         this.color =color;
     }
 
-    Cell(int x, int y, boolean isEmpty, Color color) {
+    Cell(int x, int y, Color color) {
         this.x = x;
         this.y = y;
         this.color = color;

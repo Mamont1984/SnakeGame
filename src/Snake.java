@@ -1,6 +1,5 @@
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -9,7 +8,7 @@ import java.util.List;
 public class Snake {
 
     private int snakeLength;
-    List<Cell> body = new ArrayList<>();
+    List<Cell> body = new ArrayList<Cell>();
 
     Snake(int x, int y,Field field, int snakeLength) {
         this.snakeLength = snakeLength;

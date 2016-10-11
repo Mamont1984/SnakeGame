@@ -1,4 +1,3 @@
-import java.awt.*;
 import java.util.Random;
 
 /**
@@ -37,20 +36,6 @@ public class Field {
             } while (field[x][y] != null);
         field[x][y] = element;
     }
-
-//    public void show() {
-//        Graphics g;
-//        for (int i = 0; i < SnakeGame.FIELD_WIDTH; i++) {
-//            for (int j = 0; j < SnakeGame.FIELD_HEIGHT; j++) {
-//                g = SnakeGame.canvas.getGraphics();
-//                g.setColor(Color.red);
-//                g.fillRect(0, 0, 20, 20);
-//                g.dispose();
-//                canvas.paint(g);
-//            }
-//            System.out.println();
-//        }
-//    }
 
     public Cell getCell(int x,int y) {
         return field[x][y];

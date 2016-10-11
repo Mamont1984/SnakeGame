@@ -8,13 +8,13 @@ import java.awt.event.KeyListener;
  */
 public class SnakeGame extends JFrame {
 
-    final static int FIELD_WIDTH = 100;
-    final static int FIELD_HEIGHT = 100;
+    final static int FIELD_WIDTH = 40;
+    final static int FIELD_HEIGHT = 40;
     final static int FIELD_WIDTH_DX = 6;
     final static int FIELD_HEIGHT_DX = 28;
     final static int CELL_SIZE = 10;
-    final static int SNAKE_LENGTH = 10;
-    final static int GAME_SPEED_MILLS = 50;
+    final static int SNAKE_LENGTH = 5;
+    final static int GAME_SPEED_MILLS = 100;
     final static int UP = 38;
     final static int DOWN = 40;
     final static int LEFT = 37;
@@ -85,11 +85,7 @@ public class SnakeGame extends JFrame {
             }
             for (int i = 0; i < SnakeGame.FIELD_WIDTH; i++) {
                 for (int j = 0; j < SnakeGame.FIELD_HEIGHT; j++) {
-                    if (field.getCell(i, j) == null) {
-//                        g = canvas.getGraphics();
-//                        g.setColor(Color.white);
-//                        g.fillRect(i * CELL_SIZE, j * CELL_SIZE, CELL_SIZE, CELL_SIZE);
-                    } else {
+                    if (field.getCell(i, j) != null) {
                         g = canvas.getGraphics();
                         g.setColor(field.getCell(i, j).getColor());
                         g.fillRect(i * CELL_SIZE, j * CELL_SIZE, CELL_SIZE, CELL_SIZE);
@@ -104,6 +100,4 @@ public class SnakeGame extends JFrame {
     public static void setGameOver() {
         GameOver = true;
     }
-
-
 }

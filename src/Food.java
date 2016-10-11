@@ -6,10 +6,6 @@ import java.awt.*;
 public class Food extends Cell {
 
     Food() {
-        super(false, Color.red);
-    }
-
-    Food(int x, int y) {
-        super(x, y, false, Color.red);
+        super(Color.red);
     }
 }

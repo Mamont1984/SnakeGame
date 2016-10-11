@@ -6,6 +6,6 @@ import java.awt.*;
 public class Wall extends Cell {
 
     Wall(int x, int y) {
-        super(x, y, false, Color.black);
+        super(x, y, Color.black);
     }
 }
