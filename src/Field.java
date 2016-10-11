@@ -14,8 +14,6 @@ public class Field {
             for (int j = 0; j < SnakeGame.FIELD_HEIGHT; j++) {
                 if ((i == 0) || (j == 0) || (i == SnakeGame.FIELD_WIDTH - 1) || (j == SnakeGame.FIELD_HEIGHT - 1)) {
                     field[i][j] = new Wall(i, j);
-                } else {
-                    field[i][j] = new Cell(true, Color.white);
                 }
             }
         }
@@ -26,9 +24,8 @@ public class Field {
         return field[x][y];
     }
 
-    public Cell setSnakeBody(int x, int y, Cell cell) {
-        field[x][y] = cell;
-        return field[x][y];
+    public void removeSnakeBody(int x, int y) {
+        field[x][y] = null;
     }
 
     public void setRandom(Cell element) {
@@ -37,7 +34,7 @@ public class Field {
             do {
                 x = rnd.nextInt(SnakeGame.FIELD_WIDTH - 1);
                 y = rnd.nextInt(SnakeGame.FIELD_HEIGHT - 1);
-            } while (!field[x][y].isEmpty());
+            } while (field[x][y] != null);
         field[x][y] = element;
     }
 

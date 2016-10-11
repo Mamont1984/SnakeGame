@@ -18,44 +18,44 @@ public class Snake {
         }
     }
 
-    public void snakeMove(int currentSnakeDirection, Field field) {
+    public void snakeMove(int currentSnakeDirection, Field field, Graphics g) {
 
         int x = body.get(body.size() - 1).getX();
         int y = body.get(body.size() - 1).getY();
 
         switch (currentSnakeDirection) {
             case SnakeGame.UP:
-                if (field.getCell(x, y - 1).isEmpty()) {
+                if (field.getCell(x, y - 1) == null) {
                     body.add(field.setSnakeBody(x , y - 1));
                 } else {
                     SnakeGame.setGameOver();
                 }
                 break;
             case SnakeGame.DOWN:
-                if (field.getCell(x, y + 1).isEmpty()) {
+                if (field.getCell(x, y + 1) == null) {
                     body.add(field.setSnakeBody(x , y + 1));
                 } else {
                     SnakeGame.setGameOver();
                 }
                 break;
             case SnakeGame.LEFT:
-                if (field.getCell(x - 1, y).isEmpty()) {
+                if (field.getCell(x - 1, y) == null) {
                     body.add(field.setSnakeBody(x - 1, y));
                 } else {
                     SnakeGame.setGameOver();
                 }
                 break;
             case SnakeGame.RIGTH:
-                if (field.getCell(x +1 , y).isEmpty()) {
+                if (field.getCell(x +1 , y) == null) {
                     body.add(field.setSnakeBody(x + 1, y));
                 } else {
                     SnakeGame.setGameOver();
                 }
                 break;
         }
-
-        Cell c = body.get(0);
-        field.setSnakeBody(c.getX(), c.getY(), new Cell(c.getX(), c.getY(), true, Color.white));
+        g.setColor(Color.white);
+        g.fillRect(body.get(0).getX() * SnakeGame.CELL_SIZE, body.get(0).getY() * SnakeGame.CELL_SIZE, SnakeGame.CELL_SIZE, SnakeGame.CELL_SIZE);
+        field.removeSnakeBody(body.get(0).getX(), body.get(0).getY());
         body.remove(0);
     }
 }

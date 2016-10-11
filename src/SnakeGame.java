@@ -8,12 +8,12 @@ import java.awt.event.KeyListener;
  */
 public class SnakeGame extends JFrame {
 
-    final static int FIELD_WIDTH = 30;
-    final static int FIELD_HEIGHT = 30;
+    final static int FIELD_WIDTH = 100;
+    final static int FIELD_HEIGHT = 100;
     final static int FIELD_WIDTH_DX = 6;
     final static int FIELD_HEIGHT_DX = 28;
     final static int CELL_SIZE = 10;
-    final static int SNAKE_LENGTH = 5;
+    final static int SNAKE_LENGTH = 10;
     final static int GAME_SPEED_MILLS = 50;
     final static int UP = 38;
     final static int DOWN = 40;
@@ -31,15 +31,19 @@ public class SnakeGame extends JFrame {
         public void keyPressed(KeyEvent e) {
             switch (e.getKeyCode()) {
                 case UP:
+                    if (currentSnakeDirection != DOWN)
                     currentSnakeDirection = UP;
                     break;
                 case DOWN:
+                    if (currentSnakeDirection != UP)
                     currentSnakeDirection = DOWN;
                     break;
                 case LEFT:
+                    if (currentSnakeDirection != RIGTH)
                     currentSnakeDirection = LEFT;
                     break;
                 case RIGTH:
+                    if (currentSnakeDirection != LEFT)
                     currentSnakeDirection = RIGTH;
             }
         }
@@ -81,17 +85,25 @@ public class SnakeGame extends JFrame {
             }
             for (int i = 0; i < SnakeGame.FIELD_WIDTH; i++) {
                 for (int j = 0; j < SnakeGame.FIELD_HEIGHT; j++) {
-                    g = canvas.getGraphics();
-                    g.setColor(field.getCell(i, j).getColor());
-                    g.fillRect(i * CELL_SIZE, j * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+                    if (field.getCell(i, j) == null) {
+//                        g = canvas.getGraphics();
+//                        g.setColor(Color.white);
+//                        g.fillRect(i * CELL_SIZE, j * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+                    } else {
+                        g = canvas.getGraphics();
+                        g.setColor(field.getCell(i, j).getColor());
+                        g.fillRect(i * CELL_SIZE, j * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+
+                    }
                 }
             }
-            snake.snakeMove(currentSnakeDirection, field);
+            snake.snakeMove(currentSnakeDirection, field, g);
         }
     }
 
     public static void setGameOver() {
         GameOver = true;
     }
+
 
 }
