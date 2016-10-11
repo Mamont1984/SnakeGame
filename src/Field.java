@@ -26,6 +26,11 @@ public class Field {
         return field[x][y];
     }
 
+    public Cell setSnakeBody(int x, int y, Cell cell) {
+        field[x][y] = cell;
+        return field[x][y];
+    }
+
     public void setRandom(Cell element) {
         int x;
         int y;
@@ -36,7 +41,7 @@ public class Field {
         field[x][y] = element;
     }
 
-    public void show() {
+//    public void show() {
 //        Graphics g;
 //        for (int i = 0; i < SnakeGame.FIELD_WIDTH; i++) {
 //            for (int j = 0; j < SnakeGame.FIELD_HEIGHT; j++) {
@@ -48,7 +53,7 @@ public class Field {
 //            }
 //            System.out.println();
 //        }
-    }
+//    }
 
     public Cell getCell(int x,int y) {
         return field[x][y];
